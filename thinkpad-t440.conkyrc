@@ -1,21 +1,10 @@
 
 conky.config = { 
-
+	out_to_wayland = true,
 	background = true,
-	use_xft = true,
 	font = 'Fira Code:weight=Bold:size=8.5',
-	xftalpha = 0.8,
 	update_interval = 1,
 	total_run_times = 0,
-	own_window = true,
-	own_window_transparent = true,
-	own_window_type = 'dock',
-	own_window_class = 'conky',
-	own_window_argb_visual = true,
-	own_window_colour = '#000000',
-	own_window_argb_value = 150,
-	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	double_buffer = true,
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -53,11 +42,11 @@ ${offset 240}┌────────────${color white}${nodename}${c
 ${offset 140}┌───────────${uid_name 1000}${font}
 ${offset 140}├── ${color red}${exec lsb_release -drcs}${color}
 ${offset 140}├── Kernel < ${kernel} >
-${offset 140}├── Uptime ${exec /home/ngoclb/.conky/Thinkpad/uptime_conky.sh}
-${offset 140}├── GPU < ${exec /home/ngoclb/.conky/Thinkpad/get_gpu.sh gpu} >
-${offset 140}└── Res < ${exec /home/ngoclb/.conky/Thinkpad/get_gpu.sh res} >
+${offset 140}├── Uptime ${exec /home/evilme/.conky/Thinkpad/uptime_conky.sh}
+${offset 140}├── GPU < ${exec /home/evilme/.conky/Thinkpad/get_gpu.sh gpu} >
+${offset 140}└── Res < ${exec /home/evilme/.conky/Thinkpad/get_gpu.sh res} >
 
-${offset 140}${color red}LANG${color} < ${exec cat /etc/default/locale | grep "LANG=" | cut -d"=" -f2} > ──────
+${offset 140}${color red}LANG${color} < ${exec cat /etc/locale.conf | grep "LANG=" | cut -d"=" -f2} > ──────
 
 
 ${alignr}${offset 0}────────────┌─── ${color red}Process Name${color}       ${color red}PID   CPU%   MEM%${color}
@@ -77,7 +66,7 @@ ${alignr}${offset -75}───────────── ${color red}memory
 
 ${alignr}${offset -615}${color red}${execi 1000 cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 1-25}${color} ───────
 
-${offset 610}──────────────┌─── ${color red}${exec /home/ngoclb/.conky/Thinkpad/is_connected.sh}${color}
+${offset 610}──────────────┌─── ${color red}${exec /home/evilme/.conky/Thinkpad/is_connected.sh}${color}
 ${offset 701} ├── IP < ${exec ip addr show $(ip addr show | awk '/inet.*brd/{print $NF; exit}') | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/'} / ${execi 60 curl ipinfo.io/ip} >
 ${offset 701} ├── UP   ${upspeedgraph wlp3s0 12,120 06E9F8 2804FA}
 ${offset 701} └── DOWN ${downspeedgraph wlp3s0 12,120 FFFF00 DD3A21}
@@ -94,9 +83,9 @@ ${offset 140}${color red}volume${color} < ${exec amixer sget Master | grep 'Righ
 
 
 
-${alignc}${offset 240}────────── ${color red}battery${color} <${exec /home/ngoclb/.conky/Thinkpad/get_battery.sh}>
+${alignc}${offset 240}────────── ${color red}battery${color} <${exec /home/evilme/.conky/Thinkpad/get_battery.sh}>
 
 
-${alignr}${offset -60}────── Dropbox < ${fs_bar 5,120 /home/ngoclb/Dropbox} >
-${alignr}${offset -60} pCloud  < ${fs_bar 5,120 /home/ngoclb/pCloud} >
+${alignr}${offset -60}────── Dropbox < ${fs_bar 5,120 /home/evilme/Dropbox} >
+${alignr}${offset -60} pCloud  < ${fs_bar 5,120 /home/evilme/pCloud} >
 ]];
