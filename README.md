@@ -2,7 +2,11 @@
 
 Require [Conky](https://github.com/brndnmtthws/conky) is installed in your system and built with BUILD_WAYLAND flag. (Yes, you'll have to build it yourself)
 
-Tested with Hyprland and Hyprpaper
+Tested with Hyprland and Hyprpaper.
+
+Make sure BUILD_WAYLAND flag is on.
+![](configure.png)
+
 
 # Install
 
